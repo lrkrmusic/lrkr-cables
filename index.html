@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LRKR Cables | Handmade Instrument Cables</title>
+  <meta name="description" content="Premium handmade instrument cables. Braided shield, Neutrik gold connectors. Built by a musician in St. Louis.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --gold: #D4AF37;
+      --gold-dark: #8B7355;
+      --bg: #0a0a0a;
+      --bg-light: #111;
+      --text: #ffffff;
+      --text-muted: #888;
+      --text-dim: #555;
+      --border: #222;
+    }
+    
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    
+    /* Grid Background */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+    
+    .logo-sub {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: #666;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    
+    .cart-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+      display: none;
+    }
+    
+    .cart-btn.visible {
+      display: block;
+    }
+    
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding: 48px 48px 96px;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: center;
+      min-height: 60vh;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tagline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    
+    .tagline-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    
+    h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    
+    h1 span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    
+    .subhead {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 400px;
+      margin-bottom: 32px;
+    }
+    
+    /* Cable Visual */
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .cable-visual {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .cable-coil {
+      width: 200px;
+      height: 150px;
+      position: relative;
+    }
+    
+    .cable-ring {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 8px solid #1a1a1a;
+      border-radius: 50%;
+      box-shadow: inset 0 0 20px rgba(212,175,55,0.1), 0 4px 8px rgba(0,0,0,0.5);
+      left: 50%;
+      margin-left: -90px;
+    }
+    
+    /* Products */
+    .products {
+      padding: 48px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    
+    .product-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+    
+    .product-card:hover {
+      border-color: #444;
+    }
+    
+    .product-card.active {
+      border-color: var(--gold);
+      background: #1a1510;
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      font-size: 10px;
+      background: var(--gold);
+      color: #000;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .product-length {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .product-price {
+      font-size: 16px;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    
+    .product-desc {
+      font-size: 11px;
+      color: #666;
+      text-align: center;
+    }
+    
+    /* Actions */
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    
+    .buy-btn {
+      background: linear-gradient(135deg, var(--gold) 0%, #B8963C 100%);
+      border: none;
+      color: #000;
+      padding: 16px 48px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+    }
+    
+    .buy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(212,175,55,0.4);
+    }
+    
+    .buy-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    .add-cart-btn {
+      background: transparent;
+      border: 1px solid #333;
+      color: var(--text-muted);
+      padding: 16px 32px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .add-cart-btn:hover {
+      border-color: #555;
+      color: var(--text);
+    }
+    
+    .shipping-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    
+    /* Specs */
+    .specs {
+      background: #080808;
+      padding: 96px 48px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .specs-title {
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 48px;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto 64px;
+    }
+    
+    .spec-item {
+      text-align: center;
+    }
+    
+    .spec-label {
+      display: block;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .feature {
+      text-align: center;
+    }
+    
+    .feature-icon {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    
+    .feature h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .feature p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 64px 48px 32px;
+      border-top: 1px solid #1a1a1a;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto 32px;
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+    
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+    
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    
+    .copyright {
+      text-align: center;
+      font-size: 12px;
+      color: #333;
+    }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .subhead {
+        margin: 0 auto 32px;
+      }
+      
+      .hero-image {
+        order: -1;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+      }
+      
+      nav, .hero, .products, .specs, footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <span class="logo-text">LRKR</span>
+      <span class="logo-sub">CABLES</span>
+    </div>
+    <div class="nav-links">
+      <a href="#specs">Specs</a>
+      <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank">Music ↗</a>
+      <button class="cart-btn" id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="tagline">
+        <div class="tagline-line"></div>
+        <span>Handmade in St. Louis</span>
+      </div>
+      
+      <h1>
+        Super Noiseless<br>
+        <span>Instrument Cable</span>
+      </h1>
+      
+      <p class="subhead">
+        Premium shielded cable. Neutrik gold connectors. 
+        Built by a musician, for musicians.
+      </p>
+    </div>
+    
+    <div class="hero-image">
+      <div class="cable-visual">
+        <div class="cable-coil">
+          <!-- Cable rings created via CSS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products">
+    <div class="products-grid" id="productsGrid">
+      <!-- Products inserted via JS -->
+    </div>
+    
+    <div class="actions">
+      <button class="buy-btn" id="buyBtn">Buy Now — $34.99</button>
+      <button class="add-cart-btn" id="addCartBtn">Add to Cart</button>
+    </div>
+    
+    <p class="shipping-note">
+      Free shipping on orders over $50 • Ships within 48 hours
+    </p>
+  </section>
+
+  <!-- Specs -->
+  <section class="specs" id="specs">
+    <h2 class="specs-title">Specifications</h2>
+    
+    <div class="specs-grid">
+      <div class="spec-item">
+        <span class="spec-label">Cable</span>
+        <span class="spec-value">EWI PCS-2560 Premium Braided Shield</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Gauge</span>
+        <span class="spec-value">18 AWG</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Connectors</span>
+        <span class="spec-value">Neutrik NP2X Gold 1/4" TS</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Origin</span>
+        <span class="spec-value">Handmade in St. Louis</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Warranty</span>
+        <span class="spec-value">Lifetime</span>
+      </div>
+    </div>
+    
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">◈</div>
+        <h3>Noise-Free Signal</h3>
+        <p>Braided shield construction eliminates interference and hum.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">◈</div>
+        <h3>Gold-Plated Contacts</h3>
+        <p>Neutrik connectors for reliable, low-resistance connections.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">◈</div>
+        <h3>Built to Last</h3>
+        <p>18 AWG conductors and reinforced strain relief.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">LRKR</div>
+        <p class="footer-tagline">Musician. Engineer. Builder.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:contact@lrkrmusic.com">Contact</a>
+        <a href="#">Warranty</a>
+        <a href="#">Returns</a>
+      </div>
+    </div>
+    <p class="copyright">© 2025 LRKR. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ===========================================
+    // SHOPIFY STOREFRONT API CONFIGURATION
+    // ===========================================
+    // 
+    // To connect to your Shopify store:
+    // 1. Go to Shopify Admin → Settings → Apps and sales channels → Develop apps
+    // 2. Create a new app, enable Storefront API access
+    // 3. Get your Storefront API access token
+    // 4. Replace these values:
+    
+    const SHOPIFY_CONFIG = {
+      domain: 'your-store.myshopify.com',  // Your Shopify domain
+      storefrontToken: 'your-storefront-access-token',  // Storefront API token
+    };
+    
+    // Map your product lengths to Shopify variant IDs
+    // Find these in Shopify Admin → Products → [Your Product] → Variants
+    const VARIANT_IDS = {
+      '5ft': 'gid://shopify/ProductVariant/XXXXXXXX',
+      '10ft': 'gid://shopify/ProductVariant/XXXXXXXX',
+      '15ft': 'gid://shopify/ProductVariant/XXXXXXXX',
+      '20ft': 'gid://shopify/ProductVariant/XXXXXXXX',
+    };
+    
+    // ===========================================
+    // PRODUCT DATA
+    // ===========================================
+    
+    const products = [
+      { id: '5ft', length: '5ft', price: 24.99, description: 'Pedalboard & short runs' },
+      { id: '10ft', length: '10ft', price: 34.99, description: 'Stage standard', popular: true },
+      { id: '15ft', length: '15ft', price: 44.99, description: 'Extended reach' },
+      { id: '20ft', length: '20ft', price: 54.99, description: 'Maximum freedom' },
+    ];
+    
+    // ===========================================
+    // STATE
+    // ===========================================
+    
+    let selectedProduct = products.find(p => p.popular) || products[0];
+    let cartId = null;
+    let cartCount = 0;
+    
+    // ===========================================
+    // SHOPIFY STOREFRONT API FUNCTIONS
+    // ===========================================
+    
+    async function shopifyFetch(query, variables = {}) {
+      const response = await fetch(
+        `https://${SHOPIFY_CONFIG.domain}/api/2024-01/graphql.json`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Shopify-Storefront-Access-Token': SHOPIFY_CONFIG.storefrontToken,
+          },
+          body: JSON.stringify({ query, variables }),
+        }
+      );
+      return response.json();
+    }
+    
+    async function createCart(variantId, quantity = 1) {
+      const query = `
+        mutation cartCreate($input: CartInput!) {
+          cartCreate(input: $input) {
+            cart {
+              id
+              checkoutUrl
+              lines(first: 10) {
+                edges {
+                  node {
+                    quantity
+                  }
+                }
+              }
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      `;
+      
+      const variables = {
+        input: {
+          lines: [{ merchandiseId: variantId, quantity }],
+        },
+      };
+      
+      const { data } = await shopifyFetch(query, variables);
+      return data.cartCreate.cart;
+    }
+    
+    async function addToCart(cartId, variantId, quantity = 1) {
+      const query = `
+        mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {
+          cartLinesAdd(cartId: $cartId, lines: $lines) {
+            cart {
+              id
+              checkoutUrl
+              lines(first: 10) {
+                edges {
+                  node {
+                    quantity
+                  }
+                }
+              }
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      `;
+      
+      const variables = {
+        cartId,
+        lines: [{ merchandiseId: variantId, quantity }],
+      };
+      
+      const { data } = await shopifyFetch(query, variables);
+      return data.cartLinesAdd.cart;
+    }
+    
+    // ===========================================
+    // UI FUNCTIONS
+    // ===========================================
+    
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = products.map(product => `
+        <div class="product-card ${product.id === selectedProduct.id ? 'active' : ''}" 
+             data-id="${product.id}">
+          ${product.popular ? '<span class="popular-badge">Most Popular</span>' : ''}
+          <span class="product-length">${product.length}</span>
+          <span class="product-price">$${product.price.toFixed(2)}</span>
+          <span class="product-desc">${product.description}</span>
+        </div>
+      `).join('');
+      
+      // Add click handlers
+      grid.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', () => {
+          selectedProduct = products.find(p => p.id === card.dataset.id);
+          renderProducts();
+          updateBuyButton();
+        });
+      });
+    }
+    
+    function updateBuyButton() {
+      document.getElementById('buyBtn').textContent = 
+        `Buy Now — $${selectedProduct.price.toFixed(2)}`;
+    }
+    
+    function updateCartUI() {
+      const cartBtn = document.getElementById('cartBtn');
+      const countEl = document.getElementById('cartCount');
+      countEl.textContent = cartCount;
+      cartBtn.classList.toggle('visible', cartCount > 0);
+    }
+    
+    // ===========================================
+    // EVENT HANDLERS
+    // ===========================================
+    
+    async function handleBuyNow() {
+      const btn = document.getElementById('buyBtn');
+      btn.disabled = true;
+      btn.textContent = 'Loading...';
+      
+      try {
+        // In production, use actual Shopify variant IDs:
+        // const variantId = VARIANT_IDS[selectedProduct.id];
+        // const cart = await createCart(variantId);
+        // window.location.href = cart.checkoutUrl;
+        
+        // Demo behavior:
+        setTimeout(() => {
+          alert(`This would redirect to Shopify checkout for ${selectedProduct.length} cable at $${selectedProduct.price}`);
+          btn.disabled = false;
+          updateBuyButton();
+        }, 800);
+        
+      } catch (error) {
+        console.error('Checkout error:', error);
+        btn.disabled = false;
+        updateBuyButton();
+      }
+    }
+    
+    async function handleAddToCart() {
+      try {
+        // In production:
+        // const variantId = VARIANT_IDS[selectedProduct.id];
+        // if (!cartId) {
+        //   const cart = await createCart(variantId);
+        //   cartId = cart.id;
+        // } else {
+        //   await addToCart(cartId, variantId);
+        // }
+        
+        // Demo behavior:
+        cartCount++;
+        updateCartUI();
+        
+      } catch (error) {
+        console.error('Add to cart error:', error);
+      }
+    }
+    
+    // ===========================================
+    // INITIALIZATION
+    // ===========================================
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateBuyButton();
+      
+      document.getElementById('buyBtn').addEventListener('click', handleBuyNow);
+      document.getElementById('addCartBtn').addEventListener('click', handleAddToCart);
+    });
+  </script>
+</body>
+</html>
