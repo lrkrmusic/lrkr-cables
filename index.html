@@ -586,7 +586,7 @@
         <p class="footer-tagline">Musician. Engineer. Builder.</p>
       </div>
       <div class="footer-links">
-        <a href="mailto:contact@lrkrmusic.com">Contact</a>
+        <a href="/cdn-cgi/l/email-protection#75161a1b011416013519071e071800061c165b161a18">Contact</a>
         <a href="#">Warranty</a>
         <a href="#">Returns</a>
       </div>
@@ -594,7 +594,7 @@
     <p class="copyright">© 2025 LRKR. All rights reserved.</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ===========================================
     // SHOPIFY STOREFRONT API CONFIGURATION
     // ===========================================
@@ -606,17 +606,15 @@
     // 4. Replace these values:
     
     const SHOPIFY_CONFIG = {
-      domain: 'your-store.myshopify.com',  // Your Shopify domain
-      storefrontToken: 'your-storefront-access-token',  // Storefront API token
+      domain: 'lrkrmusic.myshopify.com',
+      storefrontToken: 'YOUR_STOREFRONT_TOKEN_HERE',  // Replace with your Storefront API token
     };
     
-    // Map your product lengths to Shopify variant IDs
-    // Find these in Shopify Admin → Products → [Your Product] → Variants
     const VARIANT_IDS = {
-      '5ft': 'gid://shopify/ProductVariant/XXXXXXXX',
-      '10ft': 'gid://shopify/ProductVariant/XXXXXXXX',
-      '15ft': 'gid://shopify/ProductVariant/XXXXXXXX',
-      '20ft': 'gid://shopify/ProductVariant/XXXXXXXX',
+      '10ft': 'gid://shopify/ProductVariant/52962765701427',
+      '15ft': 'gid://shopify/ProductVariant/52962765734195',
+      '20ft': 'gid://shopify/ProductVariant/52962765766963',
+      '25ft': 'gid://shopify/ProductVariant/52965287657779',
     };
     
     // ===========================================
@@ -624,10 +622,10 @@
     // ===========================================
     
     const products = [
-      { id: '5ft', length: '5ft', price: 24.99, description: 'Pedalboard & short runs' },
-      { id: '10ft', length: '10ft', price: 34.99, description: 'Stage standard', popular: true },
-      { id: '15ft', length: '15ft', price: 44.99, description: 'Extended reach' },
-      { id: '20ft', length: '20ft', price: 54.99, description: 'Maximum freedom' },
+      { id: '10ft', length: '10ft', price: 69, description: 'Home & studio' },
+      { id: '15ft', length: '15ft', price: 79, description: 'All-purpose', popular: true },
+      { id: '20ft', length: '20ft', price: 89, description: 'Stage standard' },
+      { id: '25ft', length: '25ft', price: 99, description: 'Maximum freedom' },
     ];
     
     // ===========================================
@@ -733,7 +731,7 @@
              data-id="${product.id}">
           ${product.popular ? '<span class="popular-badge">Most Popular</span>' : ''}
           <span class="product-length">${product.length}</span>
-          <span class="product-price">$${product.price.toFixed(2)}</span>
+          <span class="product-price">$${product.price}</span>
           <span class="product-desc">${product.description}</span>
         </div>
       `).join('');
@@ -750,7 +748,7 @@
     
     function updateBuyButton() {
       document.getElementById('buyBtn').textContent = 
-        `Buy Now — $${selectedProduct.price.toFixed(2)}`;
+        `Buy Now — $${selectedProduct.price}`;
     }
     
     function updateCartUI() {
@@ -817,9 +815,4 @@
       renderProducts();
       updateBuyButton();
       
-      document.getElementById('buyBtn').addEventListener('click', handleBuyNow);
-      document.getElementById('addCartBtn').addEventListener('click', handleAddToCart);
-    });
-  </script>
-</body>
-</html>
+      document.getElementById('buyBtn').addEventListe
