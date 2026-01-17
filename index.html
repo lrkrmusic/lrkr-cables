@@ -53,7 +53,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 24px 48px;
+      padding: 20px 48px;
       position: relative;
       z-index: 10;
     }
@@ -116,11 +116,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      padding: 48px 48px 96px;
+      padding: 24px 48px 12px;
       max-width: 1400px;
       margin: 0 auto;
       align-items: center;
-      min-height: 60vh;
+      min-height: 50vh;
       position: relative;
       z-index: 1;
     }
@@ -160,7 +160,7 @@
       color: var(--text-muted);
       line-height: 1.6;
       max-width: 400px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
     
     /* Cable Visual */
@@ -198,7 +198,7 @@
     
     /* Products */
     .products {
-      padding: 48px;
+      padding: 12px 48px 48px;
       max-width: 800px;
       margin: 0 auto;
       position: relative;
@@ -483,7 +483,7 @@
     </div>
     <div class="nav-links">
       <a href="#specs">Specs</a>
-      <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank">Music ↗</a>
+      <a href="https://open.spotify.com/artist/0yTK74zLEsMyrdVPjw3Zqi" target="_blank">Music ↗</a>
       <button class="cart-btn" id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
     </div>
   </nav>
@@ -523,7 +523,7 @@
     </div>
     
     <div class="actions">
-      <button class="buy-btn" id="buyBtn">Buy Now — $34.99</button>
+      <button class="buy-btn" id="buyBtn">Buy Now — $79</button>
       <button class="add-cart-btn" id="addCartBtn">Add to Cart</button>
     </div>
     
@@ -586,7 +586,7 @@
         <p class="footer-tagline">Musician. Engineer. Builder.</p>
       </div>
       <div class="footer-links">
-        <a href="/cdn-cgi/l/email-protection#75161a1b011416013519071e071800061c165b161a18">Contact</a>
+        <a href="mailto:contact@lrkrmusic.com">Contact</a>
         <a href="#">Warranty</a>
         <a href="#">Returns</a>
       </div>
@@ -594,16 +594,10 @@
     <p class="copyright">© 2025 LRKR. All rights reserved.</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // ===========================================
     // SHOPIFY STOREFRONT API CONFIGURATION
     // ===========================================
-    // 
-    // To connect to your Shopify store:
-    // 1. Go to Shopify Admin → Settings → Apps and sales channels → Develop apps
-    // 2. Create a new app, enable Storefront API access
-    // 3. Get your Storefront API access token
-    // 4. Replace these values:
     
     const SHOPIFY_CONFIG = {
       domain: 'lrkrmusic.myshopify.com',
@@ -815,4 +809,9 @@
       renderProducts();
       updateBuyButton();
       
-      document.getElementById('buyBtn').addEventListe
+      document.getElementById('buyBtn').addEventListener('click', handleBuyNow);
+      document.getElementById('addCartBtn').addEventListener('click', handleAddToCart);
+    });
+  </script>
+</body>
+</html>
