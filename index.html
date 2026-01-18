@@ -6,17 +6,12 @@
   <title>LRKR Cables | Handmade Instrument Cables</title>
   <meta name="description" content="Premium handmade instrument cables. Braided shield, Neutrik gold connectors. Built by a musician in St. Louis.">
   
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     :root {
       --gold: #D4AF37;
@@ -36,7 +31,6 @@
       line-height: 1.5;
     }
     
-    /* Grid Background */
     .grid-bg {
       position: fixed;
       inset: 0;
@@ -48,7 +42,6 @@
       z-index: 0;
     }
     
-    /* Navigation */
     nav {
       display: flex;
       justify-content: space-between;
@@ -58,32 +51,11 @@
       z-index: 10;
     }
     
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
+    .logo { display: flex; align-items: baseline; gap: 8px; }
+    .logo-text { font-size: 28px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); }
+    .logo-sub { font-size: 12px; font-weight: 500; letter-spacing: 0.3em; color: #666; }
     
-    .logo-text {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-    }
-    
-    .logo-sub {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      color: #666;
-    }
-    
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    
+    .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
@@ -91,10 +63,7 @@
       letter-spacing: 0.05em;
       transition: color 0.2s;
     }
-    
-    .nav-links a:hover {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--text); }
     
     .cart-btn {
       background: transparent;
@@ -106,12 +75,8 @@
       cursor: pointer;
       display: none;
     }
+    .cart-btn.visible { display: block; }
     
-    .cart-btn.visible {
-      display: block;
-    }
-    
-    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -135,12 +100,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
     }
-    
-    .tagline-line {
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-    }
+    .tagline-line { width: 40px; height: 1px; background: var(--gold); }
     
     h1 {
       font-size: clamp(36px, 5vw, 56px);
@@ -149,11 +109,7 @@
       margin-bottom: 24px;
       letter-spacing: -0.02em;
     }
-    
-    h1 span {
-      color: var(--gold);
-      font-weight: 600;
-    }
+    h1 span { color: var(--gold); font-weight: 600; }
     
     .subhead {
       font-size: 18px;
@@ -163,40 +119,10 @@
       margin-bottom: 24px;
     }
     
-    /* Cable Visual */
-    .hero-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    .hero-image { display: flex; justify-content: center; align-items: center; }
+    .cable-visual { width: 300px; height: 300px; position: relative; display: flex; align-items: center; justify-content: center; }
+    .cable-coil { width: 200px; height: 150px; position: relative; }
     
-    .cable-visual {
-      width: 300px;
-      height: 300px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .cable-coil {
-      width: 200px;
-      height: 150px;
-      position: relative;
-    }
-    
-    .cable-ring {
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border: 8px solid #1a1a1a;
-      border-radius: 50%;
-      box-shadow: inset 0 0 20px rgba(212,175,55,0.1), 0 4px 8px rgba(0,0,0,0.5);
-      left: 50%;
-      margin-left: -90px;
-    }
-    
-    /* Products */
     .products {
       padding: 12px 48px 48px;
       max-width: 800px;
@@ -225,15 +151,8 @@
       gap: 8px;
       position: relative;
     }
-    
-    .product-card:hover {
-      border-color: #444;
-    }
-    
-    .product-card.active {
-      border-color: var(--gold);
-      background: #1a1510;
-    }
+    .product-card:hover { border-color: #444; }
+    .product-card.active { border-color: var(--gold); background: #1a1510; }
     
     .popular-badge {
       position: absolute;
@@ -246,30 +165,11 @@
       font-weight: 600;
     }
     
-    .product-length {
-      font-size: 24px;
-      font-weight: 600;
-    }
+    .product-length { font-size: 24px; font-weight: 600; }
+    .product-price { font-size: 16px; color: var(--gold); font-weight: 500; }
+    .product-desc { font-size: 11px; color: #666; text-align: center; }
     
-    .product-price {
-      font-size: 16px;
-      color: var(--gold);
-      font-weight: 500;
-    }
-    
-    .product-desc {
-      font-size: 11px;
-      color: #666;
-      text-align: center;
-    }
-    
-    /* Actions */
-    .actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
+    .actions { display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; }
     
     .buy-btn {
       background: linear-gradient(135deg, var(--gold) 0%, #B8963C 100%);
@@ -283,16 +183,8 @@
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 20px rgba(212,175,55,0.3);
     }
-    
-    .buy-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(212,175,55,0.4);
-    }
-    
-    .buy-btn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
+    .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(212,175,55,0.4); }
+    .buy-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
     
     .add-cart-btn {
       background: transparent;
@@ -304,19 +196,10 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+    .add-cart-btn:hover { border-color: #555; color: var(--text); }
     
-    .add-cart-btn:hover {
-      border-color: #555;
-      color: var(--text);
-    }
+    .shipping-note { text-align: center; font-size: 13px; color: var(--text-dim); }
     
-    .shipping-note {
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-dim);
-    }
-    
-    /* Specs */
     .specs {
       background: #080808;
       padding: 96px 48px;
@@ -342,26 +225,10 @@
       margin: 0 auto 64px;
     }
     
-    .spec-item {
-      text-align: center;
-    }
+    .spec-item { text-align: center; }
+    .spec-label { display: block; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .spec-value { display: block; font-size: 14px; color: #ccc; }
     
-    .spec-label {
-      display: block;
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    
-    .spec-value {
-      display: block;
-      font-size: 14px;
-      color: #ccc;
-    }
-    
-    /* Features */
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -370,29 +237,11 @@
       margin: 0 auto;
     }
     
-    .feature {
-      text-align: center;
-    }
+    .feature { text-align: center; }
+    .feature-icon { font-size: 24px; color: var(--gold); margin-bottom: 16px; }
+    .feature h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .feature p { font-size: 14px; color: #666; line-height: 1.6; }
     
-    .feature-icon {
-      font-size: 24px;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    
-    .feature h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-    
-    .feature p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-    }
-    
-    /* Footer */
     footer {
       padding: 64px 48px 32px;
       border-top: 1px solid #1a1a1a;
@@ -408,35 +257,11 @@
       margin: 0 auto 32px;
     }
     
-    .footer-logo {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-    }
-    
-    .footer-tagline {
-      font-size: 13px;
-      color: var(--text-dim);
-      margin-top: 8px;
-    }
-    
-    .footer-links {
-      display: flex;
-      gap: 32px;
-    }
-    
-    .footer-links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 13px;
-    }
-    
-    .copyright {
-      text-align: center;
-      font-size: 12px;
-      color: #333;
-    }
+    .footer-logo { font-size: 24px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); }
+    .footer-tagline { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+    .copyright { text-align: center; font-size: 12px; color: #333; }
     
     /* Cart Drawer */
     .cart-overlay {
@@ -448,11 +273,7 @@
       transition: all 0.3s;
       z-index: 100;
     }
-    
-    .cart-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
+    .cart-overlay.open { opacity: 1; visibility: visible; }
     
     .cart-drawer {
       position: fixed;
@@ -469,10 +290,7 @@
       display: flex;
       flex-direction: column;
     }
-    
-    .cart-drawer.open {
-      transform: translateX(0);
-    }
+    .cart-drawer.open { transform: translateX(0); }
     
     .cart-header {
       display: flex;
@@ -481,11 +299,7 @@
       padding: 20px 24px;
       border-bottom: 1px solid #222;
     }
-    
-    .cart-header h3 {
-      font-size: 18px;
-      font-weight: 600;
-    }
+    .cart-header h3 { font-size: 18px; font-weight: 600; }
     
     .cart-close {
       background: none;
@@ -495,16 +309,9 @@
       cursor: pointer;
       padding: 4px 8px;
     }
+    .cart-close:hover { color: #fff; }
     
-    .cart-close:hover {
-      color: #fff;
-    }
-    
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px 24px;
-    }
+    .cart-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
     
     .cart-item {
       display: flex;
@@ -513,27 +320,11 @@
       padding: 16px 0;
       border-bottom: 1px solid #222;
     }
+    .cart-item-info { display: flex; flex-direction: column; gap: 4px; }
+    .cart-item-name { font-weight: 500; }
+    .cart-item-price { color: var(--gold); font-size: 14px; }
     
-    .cart-item-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    
-    .cart-item-name {
-      font-weight: 500;
-    }
-    
-    .cart-item-price {
-      color: var(--gold);
-      font-size: 14px;
-    }
-    
-    .cart-item-controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .cart-item-controls { display: flex; align-items: center; gap: 12px; }
     
     .qty-btn {
       background: #222;
@@ -545,15 +336,9 @@
       cursor: pointer;
       font-size: 16px;
     }
+    .qty-btn:hover { background: #333; }
     
-    .qty-btn:hover {
-      background: #333;
-    }
-    
-    .cart-item-qty {
-      min-width: 20px;
-      text-align: center;
-    }
+    .cart-item-qty { min-width: 20px; text-align: center; }
     
     .cart-item-remove {
       background: none;
@@ -563,23 +348,10 @@
       font-size: 18px;
       padding: 4px;
     }
+    .cart-item-remove:hover { color: #ff4444; }
     
-    .cart-item-remove:hover {
-      color: #ff4444;
-    }
-    
-    .cart-footer {
-      padding: 20px 24px;
-      border-top: 1px solid #222;
-    }
-    
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+    .cart-footer { padding: 20px 24px; border-top: 1px solid #222; }
+    .cart-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: 600; margin-bottom: 16px; }
     
     .checkout-btn {
       width: 100%;
@@ -592,69 +364,28 @@
       font-weight: 600;
       cursor: pointer;
     }
+    .checkout-btn:hover { opacity: 0.9; }
+    .checkout-btn:disabled { opacity: 0.7; cursor: not-allowed; }
     
-    .checkout-btn:hover {
-      opacity: 0.9;
-    }
+    .cart-empty { flex: 1; display: none; align-items: center; justify-content: center; color: #666; }
+    .cart-empty.visible { display: flex; }
+    .cart-footer.hidden { display: none; }
+    .cart-items.hidden { display: none; }
     
-    .cart-empty {
-      flex: 1;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-    }
-    
-    .cart-empty.visible {
-      display: flex;
-    }
-    
-    .cart-footer.hidden {
-      display: none;
-    }
-    
-    .cart-items.hidden {
-      display: none;
-    }
-    
-    /* Responsive */
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      
-      .subhead {
-        margin: 0 auto 32px;
-      }
-      
-      .hero-image {
-        order: -1;
-      }
-      
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .specs-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .features {
-        grid-template-columns: 1fr;
-      }
-      
-      nav, .hero, .products, .specs, footer {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .subhead { margin: 0 auto 32px; }
+      .hero-image { order: -1; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .features { grid-template-columns: 1fr; }
+      nav, .hero, .products, .specs, footer { padding-left: 24px; padding-right: 24px; }
     }
   </style>
 </head>
 <body>
   <div class="grid-bg"></div>
   
-  <!-- Navigation -->
   <nav>
     <div class="logo">
       <span class="logo-text">LRKR</span>
@@ -667,54 +398,33 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
       <div class="tagline">
         <div class="tagline-line"></div>
         <span>Handmade in St. Louis</span>
       </div>
-      
-      <h1>
-        Super Noiseless<br>
-        <span>Instrument Cable</span>
-      </h1>
-      
-      <p class="subhead">
-        Premium shielded cable. Neutrik gold connectors. 
-        Built by a musician, for musicians.
-      </p>
+      <h1>Super Noiseless<br><span>Instrument Cable</span></h1>
+      <p class="subhead">Premium shielded cable. Neutrik gold connectors. Built by a musician, for musicians.</p>
     </div>
-    
     <div class="hero-image">
       <div class="cable-visual">
-        <div class="cable-coil">
-          <!-- Cable rings created via CSS -->
-        </div>
+        <div class="cable-coil"></div>
       </div>
     </div>
   </section>
 
-  <!-- Products -->
   <section class="products">
-    <div class="products-grid" id="productsGrid">
-      <!-- Products inserted via JS -->
-    </div>
-    
+    <div class="products-grid" id="productsGrid"></div>
     <div class="actions">
       <button class="buy-btn" id="buyBtn">Buy Now — $79</button>
       <button class="add-cart-btn" id="addCartBtn">Add to Cart</button>
     </div>
-    
-    <p class="shipping-note">
-      Free shipping on orders over $50 • Ships within 48 hours
-    </p>
+    <p class="shipping-note">Free shipping on orders over $50 • Ships within 48 hours</p>
   </section>
 
-  <!-- Specs -->
   <section class="specs" id="specs">
     <h2 class="specs-title">Specifications</h2>
-    
     <div class="specs-grid">
       <div class="spec-item">
         <span class="spec-label">Cable</span>
@@ -737,7 +447,6 @@
         <span class="spec-value">Lifetime</span>
       </div>
     </div>
-    
     <div class="features">
       <div class="feature">
         <div class="feature-icon">◈</div>
@@ -757,7 +466,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div>
@@ -773,7 +481,6 @@
     <p class="copyright">© 2025 LRKR. All rights reserved.</p>
   </footer>
 
-  <!-- Cart Drawer -->
   <div class="cart-overlay" id="cartOverlay"></div>
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
@@ -794,13 +501,9 @@
   </div>
 
   <script>
-    // ===========================================
-    // SHOPIFY STOREFRONT API CONFIGURATION
-    // ===========================================
-    
     const SHOPIFY_CONFIG = {
       domain: 'lrkrmusic.myshopify.com',
-      storefrontToken: 'YOUR_STOREFRONT_TOKEN_HERE',  // Replace with your Storefront API token
+      storefrontToken: '9d42e988b2f50aff9f228737a1daa5a1',
     };
     
     const VARIANT_IDS = {
@@ -810,10 +513,6 @@
       '25ft': 'gid://shopify/ProductVariant/52965287657779',
     };
     
-    // ===========================================
-    // PRODUCT DATA
-    // ===========================================
-    
     const products = [
       { id: '10ft', length: '10ft', price: 69, description: 'Home & studio' },
       { id: '15ft', length: '15ft', price: 79, description: 'All-purpose', popular: true },
@@ -821,16 +520,8 @@
       { id: '25ft', length: '25ft', price: 99, description: 'Maximum freedom' },
     ];
     
-    // ===========================================
-    // STATE
-    // ===========================================
-    
     let selectedProduct = products.find(p => p.popular) || products[0];
-    let cart = []; // Array of { product, quantity }
-    
-    // ===========================================
-    // SHOPIFY STOREFRONT API FUNCTIONS
-    // ===========================================
+    let cart = [];
     
     async function shopifyFetch(query, variables = {}) {
       const response = await fetch(
@@ -862,18 +553,9 @@
           }
         }
       `;
-      
-      const variables = {
-        input: { lines },
-      };
-      
-      const { data } = await shopifyFetch(query, variables);
+      const { data } = await shopifyFetch(query, { input: { lines } });
       return data.cartCreate.cart;
     }
-    
-    // ===========================================
-    // CART FUNCTIONS
-    // ===========================================
     
     function addItemToCart(product) {
       const existing = cart.find(item => item.product.id === product.id);
@@ -911,15 +593,10 @@
       return cart.reduce((sum, item) => sum + item.quantity, 0);
     }
     
-    // ===========================================
-    // UI FUNCTIONS
-    // ===========================================
-    
     function renderProducts() {
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = products.map(product => `
-        <div class="product-card ${product.id === selectedProduct.id ? 'active' : ''}" 
-             data-id="${product.id}">
+        <div class="product-card ${product.id === selectedProduct.id ? 'active' : ''}" data-id="${product.id}">
           ${product.popular ? '<span class="popular-badge">Most Popular</span>' : ''}
           <span class="product-length">${product.length}</span>
           <span class="product-price">$${product.price}</span>
@@ -927,7 +604,6 @@
         </div>
       `).join('');
       
-      // Add click handlers
       grid.querySelectorAll('.product-card').forEach(card => {
         card.addEventListener('click', () => {
           selectedProduct = products.find(p => p.id === card.dataset.id);
@@ -938,19 +614,16 @@
     }
     
     function updateBuyButton() {
-      document.getElementById('buyBtn').textContent = 
-        `Buy Now — $${selectedProduct.price}`;
+      document.getElementById('buyBtn').textContent = `Buy Now — $${selectedProduct.price}`;
     }
     
     function updateCartUI() {
       const count = getCartCount();
       const total = getCartTotal();
       
-      // Update nav cart button
       document.getElementById('cartCount').textContent = count;
       document.getElementById('cartBtn').classList.toggle('visible', count > 0);
       
-      // Update cart drawer
       const itemsEl = document.getElementById('cartItems');
       const footerEl = document.getElementById('cartFooter');
       const emptyEl = document.getElementById('cartEmpty');
@@ -980,7 +653,6 @@
           </div>
         `).join('');
         
-        // Add event listeners to cart items
         itemsEl.querySelectorAll('.cart-item').forEach(item => {
           const id = item.dataset.id;
           item.querySelector('[data-action="decrease"]').addEventListener('click', () => updateQuantity(id, -1));
@@ -1004,29 +676,18 @@
       document.body.style.overflow = '';
     }
     
-    // ===========================================
-    // EVENT HANDLERS
-    // ===========================================
-    
     async function handleBuyNow() {
       const btn = document.getElementById('buyBtn');
       btn.disabled = true;
       btn.textContent = 'Loading...';
       
       try {
-        // Demo behavior - replace with Shopify checkout when ready:
-        // const variantId = VARIANT_IDS[selectedProduct.id];
-        // const shopifyCart = await createShopifyCart([{ merchandiseId: variantId, quantity: 1 }]);
-        // window.location.href = shopifyCart.checkoutUrl;
-        
-        setTimeout(() => {
-          alert(`This would redirect to Shopify checkout for ${selectedProduct.length} cable at $${selectedProduct.price}`);
-          btn.disabled = false;
-          updateBuyButton();
-        }, 800);
-        
+        const variantId = VARIANT_IDS[selectedProduct.id];
+        const shopifyCart = await createShopifyCart([{ merchandiseId: variantId, quantity: 1 }]);
+        window.location.href = shopifyCart.checkoutUrl;
       } catch (error) {
         console.error('Checkout error:', error);
+        alert('Something went wrong. Please try again.');
         btn.disabled = false;
         updateBuyButton();
       }
@@ -1038,32 +699,23 @@
     
     async function handleCheckout() {
       const btn = document.getElementById('checkoutBtn');
+      btn.disabled = true;
       btn.textContent = 'Loading...';
       
       try {
-        // Demo behavior - replace with Shopify checkout when ready:
-        // const lines = cart.map(item => ({
-        //   merchandiseId: VARIANT_IDS[item.product.id],
-        //   quantity: item.quantity
-        // }));
-        // const shopifyCart = await createShopifyCart(lines);
-        // window.location.href = shopifyCart.checkoutUrl;
-        
-        setTimeout(() => {
-          const items = cart.map(item => `${item.quantity}x ${item.product.length}`).join(', ');
-          alert(`This would redirect to Shopify checkout with: ${items}\nTotal: $${getCartTotal()}`);
-          btn.textContent = 'Checkout';
-        }, 800);
-        
+        const lines = cart.map(item => ({
+          merchandiseId: VARIANT_IDS[item.product.id],
+          quantity: item.quantity
+        }));
+        const shopifyCart = await createShopifyCart(lines);
+        window.location.href = shopifyCart.checkoutUrl;
       } catch (error) {
         console.error('Checkout error:', error);
+        alert('Something went wrong. Please try again.');
+        btn.disabled = false;
         btn.textContent = 'Checkout';
       }
     }
-    
-    // ===========================================
-    // INITIALIZATION
-    // ===========================================
     
     document.addEventListener('DOMContentLoaded', () => {
       renderProducts();
